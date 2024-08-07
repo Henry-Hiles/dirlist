@@ -9,7 +9,7 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
   @override
   generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) {
-    final output = <String>["foo"];
+    final output = <String>["final foo = 'test';"];
 
     return output.join('\n');
   }
