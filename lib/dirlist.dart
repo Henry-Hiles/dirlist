@@ -20,5 +20,5 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
 
 class Dirlist {
   final Object extendedClass;
-  Dirlist(this.extendedClass);
+  const Dirlist(this.extendedClass);
 }
