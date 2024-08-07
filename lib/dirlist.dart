@@ -14,7 +14,7 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
     return output.join('\n');
   }
 
-  static builder(BuilderOptions options) =>
+  static Builder builder(BuilderOptions options) =>
       SharedPartBuilder([DirlistGenerator()], "dirlist");
 }
 
