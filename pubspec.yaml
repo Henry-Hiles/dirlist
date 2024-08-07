@@ -1,0 +1,17 @@
+name: dirlist
+description: A dart library to consolidate all items in a directory into a list.
+version: 1.0.0
+repository: https://github.com/Henry-Hiles/dirlist
+
+environment:
+  sdk: ^3.4.4
+
+dependencies:
+  analyzer: ^6.5.0
+  build: ^2.4.1
+  build_config: ^1.1.1
+  source_gen: ^1.5.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
