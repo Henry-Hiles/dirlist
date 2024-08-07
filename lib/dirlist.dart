@@ -7,13 +7,12 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
   const DirlistGenerator();
 
   @override
-  generateForAnnotatedElement(
-      Element element, ConstantReader annotation, BuildStep buildStep) {
-    final output = <String>[
-      "final ${element.displayName} = ${annotation.read("extendedClass").typeValue};"
-    ];
+  Future<String> generateForAnnotatedElement(
+      Element element, ConstantReader annotation, BuildStep buildStep) async {
+    final library = LibraryReader(await buildStep.inputLibrary);
+    final extendedClass = annotation.read("extendedClass").runtimeType;
 
-    return output.join('\n');
+    return "final ${element.displayName}=[${library.classes.where((classElement) => classElement.supertype.runtimeType == extendedClass).join(",")}];";
   }
 
   static Builder builder(BuilderOptions options) =>
