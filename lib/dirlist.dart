@@ -10,9 +10,9 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
   Future<String> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) async {
     final library = LibraryReader(await buildStep.inputLibrary);
-    final extendedClass = annotation.read("extendedClass").runtimeType;
+    final extendedClass = annotation.read("extendedClass").typeValue;
 
-    return "final ${element.displayName}=[${library.classes.where((classElement) => classElement.supertype.runtimeType == extendedClass).join(",")}];";
+    return "final ${element.displayName}=[${library.classes.where((classElement) => classElement.thisType.extensionTypeErasure == extendedClass).join(",")}];";
   }
 
   static Builder builder(BuilderOptions options) =>
