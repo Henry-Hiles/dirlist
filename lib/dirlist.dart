@@ -9,7 +9,9 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
   @override
   generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) {
-    final output = <String>["final foo = 'test';"];
+    final output = <String>[
+      "final ${element.displayName} = ${annotation.read("extendedClass").typeValue};"
+    ];
 
     return output.join('\n');
   }
@@ -19,6 +21,6 @@ class DirlistGenerator extends GeneratorForAnnotation<Dirlist> {
 }
 
 class Dirlist {
-  final Object extendedClass;
+  final Type extendedClass;
   const Dirlist(this.extendedClass);
 }
